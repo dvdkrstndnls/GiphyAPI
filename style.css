@@ -1,7 +1,37 @@
 body {
-    background: blanchedalmond
+    background: linear-gradient(to left, red,orange,yellow,green,blue,indigo,violet);
 }
 
-header {font-size: 400%
+header {
+    font-size: 400%;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:10%;
+    text-align: center;
+    background: linear-gradient(to bottom, red,orange,yellow,violet);
+}
+
+#buttons {
+    position:fixed;
+    top:90px;
+}
+
+#dance-form {
+    position: relative;
+    top:200px;
+}
+
+footer {
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:30px;
+    text-align: center;
+    clear: both;
+    font-size: 80%;
+    background-color: rgb(142, 144, 145);
 
 }

@@ -48,9 +48,6 @@ $.ajax({
 });
 
 // 2. Your app should take the topics in this array and create buttons in your HTML.
-// $(".demo").append(function(){
-//   $(this).show(200);
-// });
 //    * Try using a loop that appends a button for each string in the array.
 for (var i = 0; i < arrayLength; i++) {
     console.log(topicsArray[i]);
@@ -58,20 +55,26 @@ for (var i = 0; i < arrayLength; i++) {
     $("button").on("click", function() { // any <button> element do the callback function
       var topicsArray = $(this).attr("data-person"); // pulls data from attribute and stores in var topicsArray
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        topicsArray + "&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g"; // builds the url and stores it in queryURL
-
+        topicsArray + "&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g"; // builds the url and stores it in queryURL      
+        // $(".demo").append(function(){
+//   $(this).show(200);
+// });
+        console.log(topicsArray);
+  });
 }
 
 // 3. When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
-// // see API class exersise
+// // see API class exersise with Frog on a Hog
 
 // 4. When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.
+ // see API class exersise with Frog on a Hog
 
 // 5. Under every gif, display its rating (PG, G, so on).
-//    * This data is provided by the GIPHY API.
+//    * This data is provided by the GIPHY API.  SOMETHING to do with data.rating
 //    * Only once you get images displaying with button presses should you move on to the next step.
 
-// 6. Add a form to your page that takes the value from a user input box and adds it into your `topics` array. Then make a function call that takes each topic in the array remakes the buttons on the page.
+// 6. Add a form to your page that takes the value from a user input box and adds it into your `topics` array. 
+// Then make a function call that takes each topic in the array remakes the buttons on the page.
 
 // 7. Deploy your assignment to Github Pages:: Push to GitHub otherwise already DONE
 
