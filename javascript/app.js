@@ -22,47 +22,50 @@
 //defined variables here
 var topicsArray = ['wakanda', 'little kids dancing', 'dancing bloopers', 'african tribal dancing', 'pop and lock', 'hip hop dancing', 'ballroom dancing', 'capoiera', 'hippies dancing', 'old people dancing',];
 //create arraylenth to be able to iterate through topicsArray (do we need this?)
-var arrayLength = (topicsArray.length)
-// var arrayLength = topicsArray.length;
-    // need these for later???
-    // $("button").on("click", function() {
-    //   var searchTerm = $(this).attr("data-animal");
-    //   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-    //     searchTerm + "&api_key=dc6zaTOxFJmzC&limit=10";
+var arrayLength = topicsArray.length;
+
 
 // this connects my page to the API and specifies what to get
 var queryURL =  'https://api.giphy.com/v1/gifs/search?q=' + topicsArray[0] + '&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g';
 //original non concatenated was "https://api.giphy.com/v1/gifs/search?q=wakanda+dance&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g"; 
-arrayLength = []
+// arrayLength = []
 //this is the ajax call
-$.ajax({
-  url: queryURL,
-  method: 'GET',
-}).done(function(response) {
-  // Log the resulting object - working? yes!
-  console.log(response);
-  // Log the queryURL
-  console.log(queryURL);
-  //does the below define what happens if API call fails??
-}).fail(function(err) {
-  throw err;
-});
+
 
 // 2. Your app should take the topics in this array and create buttons in your HTML.
 //    * Try using a loop that appends a button for each string in the array.
-for (var i = 0; i < arrayLength; i++) {
-    console.log(topicsArray[i]);
+// for (var i = 0; i < arrayLength; i++) {
+    // console.log(topicsArray[i]);
+
     //create buttons
-    $("button").on("click", function() { // any <button> element do the callback function
-      var topicsArray = $(this).attr("data-person"); // pulls data from attribute and stores in var topicsArray
-      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        topicsArray + "&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g"; // builds the url and stores it in queryURL      
-        // $(".demo").append(function(){
-//   $(this).show(200);
-// });
-        console.log(topicsArray);
+    $(document).on("click",'.dance-button', function() { // any <button> element do the callback function
+      
+      console.log('Logging: this')
+      console.log(this);
+
+      var danceMove = $(this).attr("data-person"); // pulls data from attribute and stores in var topicsArray
+      console.log('Logging: danceMove = $(this).attr("data-person)"');
+      console.log(danceMove);
+//       $.ajax({
+//         url: queryURL,
+//         method: 'GET',
+//       }).done(function(response) {
+//         // Log the resulting object - working? yes!
+//         console.log(response);
+//         // Log the queryURL
+//         console.log(queryURL);
+//         //does the below define what happens if API call fails??
+//       }).fail(function(err) {
+//         throw err;
+//       });
+//       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+//         topicsArray + "&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g"; // builds the url and stores it in queryURL      
+//         // $(".demo").append(function(){
+// //   $(this).show(200);
+// // });
+//         console.log(topicsArray);
   });
-}
+// }
 
 // 3. When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
 // //!!!! see API class exersise with Frog on a Hog
@@ -73,14 +76,14 @@ for (var i = 0; i < arrayLength; i++) {
 
 // 5. Under every gif, display its rating (PG, G, so on).
 //    * This data is provided by the GIPHY API.  
-p.text(results[i].rating); //or perhaps data.rating
+// p.text(results[i].rating); //or perhaps data.rating
 //    * Only once you get images displaying with button presses should you move on to the next step.
 
 // 6. Add a form to your page 
 //DONE
 //that takes the value from a user input box 
 //and adds it into your `topics` array. 
-topicsArray.append('addDance')
+// topicsArray.append('addDance')
 // Then make a function call that takes each topic in the array and remakes the buttons on the page.
 
 // 7. Deploy your assignment to Github Pages:: Push to GitHub otherwise already DONE
@@ -121,7 +124,7 @@ topicsArray.append('addDance')
 //         // make a variable named results and set it equal to response.data
 
 //         // =============== put step 2 in between these dashes ==================
-        var results = response.data;
+        // var results = response.data;
 //         // ========================
 
 //         for (var i = 0; i < results.length; i++) {
