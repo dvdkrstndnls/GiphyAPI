@@ -26,7 +26,7 @@ var arrayLength = topicsArray.length;
 
 
 // this connects my page to the API and specifies what to get
-var queryURL =  'https://api.giphy.com/v1/gifs/search?q=' + topicsArray[0] + '&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g';
+var queryURL =  'https://api.giphy.com/v1/gifs/search?q=' + danceMoveChosen + '&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g';
 //original non concatenated was "https://api.giphy.com/v1/gifs/search?q=wakanda+dance&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g"; 
 // arrayLength = []
 //this is the ajax call
@@ -37,27 +37,28 @@ var queryURL =  'https://api.giphy.com/v1/gifs/search?q=' + topicsArray[0] + '&a
 // for (var i = 0; i < arrayLength; i++) {
     // console.log(topicsArray[i]);
 
-    //create buttons
-    $(document).on("click",'.dance-button', function() { // any <button> element do the callback function
+    //listening to button clicks placed on entire document (event listener)
+    // nesccesary for dynamic button creating and listenrs
+    $(document).on("click",'.dance-button', function() { // any dance button class element do the callback function
       
       console.log('Logging: this')
       console.log(this);
 
-      var danceMove = $(this).attr("data-person"); // pulls data from attribute and stores in var topicsArray
-      console.log('Logging: danceMove = $(this).attr("data-person)"');
-      console.log(danceMove);
-//       $.ajax({
-//         url: queryURL,
-//         method: 'GET',
-//       }).done(function(response) {
-//         // Log the resulting object - working? yes!
-//         console.log(response);
-//         // Log the queryURL
-//         console.log(queryURL);
-//         //does the below define what happens if API call fails??
-//       }).fail(function(err) {
-//         throw err;
-//       });
+      var danceMoveChosen = $(this).attr("data-person"); // pulls data from attribute and stores in var danceMoveChosen
+      console.log('Logging: danceMoveChosen = $(this).attr("data-person")');
+      console.log(danceMoveChosen);
+      $.ajax({
+        url: queryURL,
+        method: 'GET',
+      }).done(function(response) {
+        // Log the resulting object - working? yes!
+        console.log(response);
+        // Log the queryURL
+        console.log(queryURL);
+        //does the below define what happens if API call fails??
+      }).fail(function(err) {
+        throw err;
+      });
 //       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
 //         topicsArray + "&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g"; // builds the url and stores it in queryURL      
 //         // $(".demo").append(function(){
