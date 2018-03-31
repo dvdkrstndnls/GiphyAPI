@@ -26,7 +26,6 @@ var arrayLength = topicsArray.length;
 
 
 // this connects my page to the API and specifies what to get
-var queryURL =  'https://api.giphy.com/v1/gifs/search?q=' + danceMoveChosen + '&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g';
 //original non concatenated was "https://api.giphy.com/v1/gifs/search?q=wakanda+dance&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g"; 
 // arrayLength = []
 //this is the ajax call
@@ -44,9 +43,14 @@ var queryURL =  'https://api.giphy.com/v1/gifs/search?q=' + danceMoveChosen + '&
       console.log('Logging: this')
       console.log(this);
 
-      var danceMoveChosen = $(this).attr("data-person"); // pulls data from attribute and stores in var danceMoveChosen
-      console.log('Logging: danceMoveChosen = $(this).attr("data-person")');
+      var danceMoveChosen = $(this).attr("data-dance-choice"); // pulls data from attribute and stores in var danceMoveChosen
+      console.log('Logging: danceMoveChosen = $(this).attr("data-dance-choice")');
       console.log(danceMoveChosen);
+
+      // we want queryURL to be able to have already seen danceMoveChosen
+      var queryURL =  'https://api.giphy.com/v1/gifs/search?q=' + danceMoveChosen + '&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g';
+
+
       $.ajax({
         url: queryURL,
         method: 'GET',
@@ -59,25 +63,38 @@ var queryURL =  'https://api.giphy.com/v1/gifs/search?q=' + danceMoveChosen + '&
       }).fail(function(err) {
         throw err;
       });
-//       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-//         topicsArray + "&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g"; // builds the url and stores it in queryURL      
-//         // $(".demo").append(function(){
-// //   $(this).show(200);
-// // });
-//         console.log(topicsArray);
+
   });
 // }
 
 // 3. When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
 // //!!!! see API class exersise with Frog on a Hog
-//!!!state=still????
+//!!!state=still????  NOT PAUSE  but choose either 'moving' URL or 'Still' url
 
 // 4. When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.
- //!!!! see API class exersise with Frog on a Hog
+ //!!!! WILL UTILIZE SOME VERSION OF THE BELOW CODE SOMEHOW
+//  <img src="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-still="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-animate="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200.gif" data-state="still" class="gif">
+//  <img src="https://media2.giphy.com/media/8rFQp4kHXJ0gU/200_s.gif" data-still="https://media2.giphy.com/media/8rFQp4kHXJ0gU/200_s.gif" data-animate="https://media2.giphy.com/media/8rFQp4kHXJ0gU/200.gif" data-state="still" class="gif">
+//  <img src="https://media3.giphy.com/media/W6LbnBigDe4ZG/200_s.gif" data-still="https://media3.giphy.com/media/W6LbnBigDe4ZG/200_s.gif" data-animate="https://media3.giphy.com/media/W6LbnBigDe4ZG/200.gif" data-state="still" class="gif">
+//    $(".gif").on("click", function() {
+//      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+//      var state = $(this).attr("data-state");
+//      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+//      // Then, set the image's data-state to animate
+//      // Else set src to the data-still value
+//      if (state === "still") {
+//        $(this).attr("src", $(this).attr("data-animate"));
+//        $(this).attr("data-state", "animate");
+//      } else {
+//        $(this).attr("src", $(this).attr("data-still"));
+//        $(this).attr("data-state", "still");
+//      }
+//    });
+
 
 // 5. Under every gif, display its rating (PG, G, so on).
-//    * This data is provided by the GIPHY API.  
-// p.text(results[i].rating); //or perhaps data.rating
+//    * This data is provided by the GIPHY API.  append the p to div
+// var p = $("<p>").text("Rating: " + response.data[i].rating);
 //    * Only once you get images displaying with button presses should you move on to the next step.
 
 // 6. Add a form to your page 
