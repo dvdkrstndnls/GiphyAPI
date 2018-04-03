@@ -6,6 +6,8 @@ var arrayLength = topicsArray.length;
 // var i = 0;
 // var i < 10;
 
+displayButtons();
+
 // this connects my page to the API and specifies what to get
 //original non concatenated was "https://api.giphy.com/v1/gifs/search?q=wakanda+dance&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g"; 
 // arrayLength = []
@@ -35,28 +37,45 @@ var arrayLength = topicsArray.length;
       $.ajax({
         url: queryURL,
         method: 'GET',
-      }).done(function(response) {
+      }).done(function(response) {  //this is a promise, will only fire off once the ajax call is complete
         // Log the resulting object - working? yes!
-        console.log(response);
+       
+        var results = response.data 
+        $('#gifs-appear-here').empty(); 
+        for (var i = 0; i < results.length; i++) { // Looping through each result item 
+          var danceImage = $("<img>"); // Creating and storing an image tag
+          danceImage.attr("src", results[i].images.fixed_height.url);  // Setting the src attribute of the image to a property pulled off the result item   
+          $('#gifs-appear-here').append(danceImage);
+         console.log(danceImage)
+         var p = $("<p>").text("Rating: " + results[i].rating);
+         $('#gifs-appear-here').append(p);
+
+        }
         // Log the queryURL
         console.log(queryURL);
-        //does the below define what happens if API call fails??
+        //does the below define what happens if API call fails?? YES!
       }).fail(function(err) {
         throw err;
       });
 
   });
 // }
+      // 3. When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
 
-      // Looping through each result item DO I NEED THIS?
-      for (var i = 0; i < results.length; i++) {
-
-// 3. When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
-    // Creating and storing an image tag
-    var danceImage = $("<img>");
-    // Setting the src attribute of the image to a property pulled off the result item      
-    danceImage.attr("src", results[i].images.fixed_height.url);
-// //!!!! see API class exersise with Frog on a Hog
+       
+    
+        function displayButtons() { 
+          $('#buttons').empty();
+          for (var i=0; i < topicsArray.length; i++) { // Looping through each result item 
+            var jsButtons =  $('<button>'); // Creating and storing a button tag
+            jsButtons.attr("data-dance-choice", topicsArray[i]);   // adds data-dance-choice to button  
+            jsButtons.attr("class", "dance-button");
+            jsButtons.text(topicsArray[i]);
+            $('#buttons').append(jsButtons);
+            
+          }
+        }    
+// //!!!! see API class exersise with Frog on a Hog VERY SIMILAR TO HOW I DEALT WITH THE BUTTON
 //!!!state=still????  NOT PAUSE  but choose either 'moving' URL or 'Still' url
 
 // 4. When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.
@@ -82,7 +101,7 @@ var arrayLength = topicsArray.length;
 
 // 5. Under every gif, display its rating (PG, G, so on).
 //    * This data is provided by the GIPHY API.  append the p to div
-// var p = $("<p>").text("Rating: " + response.data[i].rating);
+
 //    * Only once you get images displaying with button presses should you move on to the next step.
 
 // 6. Add a form to your page 
