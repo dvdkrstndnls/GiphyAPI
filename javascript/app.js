@@ -1,3 +1,8 @@
+// A $( document ).ready() block.
+$( document ).ready(function() {
+  console.log( "ready!" );
+
+
 // 1. Create an array of strings, each one related to a topic. Saved to a variable called `topics`.
 //defined variables here
 var topicsArray = ['wakanda dance', 'little kids dancing', 'dancing bloopers', 'african tribal dancing', 'pop and lock', 'hip hop dancing', 'ballroom dancing', 'polka', 'hippies dancing', 'old people dancing',];
@@ -5,8 +10,23 @@ var topicsArray = ['wakanda dance', 'little kids dancing', 'dancing bloopers', '
 var arrayLength = topicsArray.length;
 // var i = 0;
 // var i < 10;
-
+var userChoice = [];
 displayButtons();
+
+
+
+function displayButtons() { 
+  $('#buttons').empty();
+  for (var i=0; i < topicsArray.length; i++) { // Looping through each result item 
+    var jsButtons =  $('<button>'); // Creating and storing a button tag
+    jsButtons.attr("data-dance-choice", topicsArray[i]);   // adds data-dance-choice to button  
+    jsButtons.attr("class", "dance-button");
+    jsButtons.text(topicsArray[i]);
+    $('#buttons').append(jsButtons);
+    $("#addDance").push(topicsArray);
+    
+  }
+}    
 
 // this connects my page to the API and specifies what to get
 //original non concatenated was "https://api.giphy.com/v1/gifs/search?q=wakanda+dance&api_key=H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8&limit=10&rating=g"; 
@@ -64,17 +84,7 @@ displayButtons();
 
        
     
-        function displayButtons() { 
-          $('#buttons').empty();
-          for (var i=0; i < topicsArray.length; i++) { // Looping through each result item 
-            var jsButtons =  $('<button>'); // Creating and storing a button tag
-            jsButtons.attr("data-dance-choice", topicsArray[i]);   // adds data-dance-choice to button  
-            jsButtons.attr("class", "dance-button");
-            jsButtons.text(topicsArray[i]);
-            $('#buttons').append(jsButtons);
-            
-          }
-        }    
+        
 // //!!!! see API class exersise with Frog on a Hog VERY SIMILAR TO HOW I DEALT WITH THE BUTTON
 //!!!state=still????  NOT PAUSE  but choose either 'moving' URL or 'Still' url
 
@@ -180,7 +190,7 @@ displayButtons();
 // </body>
 
 // </html> -->
-
+});
 
 //===============================================
 // comment code
