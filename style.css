@@ -8,19 +8,23 @@ header {
     top:0;
     left:0;
     right:0;
-    height:20%;
+    height:22%;
     text-align: center;
     background: linear-gradient(to bottom, red,orange,yellow,violet);
 }
 
 #buttons {
-    position:fixed;
+    float: right;
+    position: fixed;
     top:180px;
+    margin-left: 70%;
 }
 
 #dance-form {
-    position: relative;
-    top:300px;
+    float: relative;
+    position: fixed;
+    top:420px;
+    margin-left: 70%;
 }
 
 footer {

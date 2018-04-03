@@ -1,6 +1,6 @@
 // 1. Create an array of strings, each one related to a topic. Saved to a variable called `topics`.
 //defined variables here
-var topicsArray = ['wakanda', 'little kids dancing', 'dancing bloopers', 'african tribal dancing', 'pop and lock', 'hip hop dancing', 'ballroom dancing', 'polka', 'hippies dancing', 'old people dancing',];
+var topicsArray = ['wakanda dance', 'little kids dancing', 'dancing bloopers', 'african tribal dancing', 'pop and lock', 'hip hop dancing', 'ballroom dancing', 'polka', 'hippies dancing', 'old people dancing',];
 //create arraylenth to be able to iterate through topicsArray (do we need this?)
 var arrayLength = topicsArray.length;
 // var i = 0;
@@ -47,7 +47,7 @@ displayButtons();
           danceImage.attr("src", results[i].images.fixed_height.url);  // Setting the src attribute of the image to a property pulled off the result item   
           $('#gifs-appear-here').append(danceImage);
          console.log(danceImage)
-         var p = $("<p>").text("Rating: " + results[i].rating);
+         var p = $("<p>").text("Rating: " + results[i].rating); // 5. Under every gif, display its rating (PG, G, so on).
          $('#gifs-appear-here').append(p);
 
         }
@@ -95,12 +95,10 @@ displayButtons();
      } else {
        $(this).attr("src", $(this).attr("data-still"));
        $(this).attr("data-state", "still");
+       console.log(data-state)
      }
    });
 
-
-// 5. Under every gif, display its rating (PG, G, so on).
-//    * This data is provided by the GIPHY API.  append the p to div
 
 //    * Only once you get images displaying with button presses should you move on to the next step.
 
