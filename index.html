@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>API Giphy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tacky Dance Machine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 
 </head>
+
 <body>
 
-  <header>DaNcE MaChInE!!!</header>
-    
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+    <header>TaCkY DaNcE MaChInE!!!</header>
 
-  <!-- form goes here -->
-  <form id="dance-form" style="float:right">
-    <label for ="dance-input"></label>
-    <input type="text" id='dance-input' placeholder="Add a kind of Dance!">
-<!-- creates submit button -->
-    <input id="addDance" type="submit" value="Submit"> 
-</form>
-<!-- all rendered buttons are in this container -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <!-- form goes here -->
+    <form id="dance-form" style="float:right">
+        <label for="dance-input"></label>
+        
+
+        <!-- audio player is here -->
+       
+        <!-- creates submit button -->
+        <input type="text" id='dance-input' placeholder="Add a kind of Dance!">
+        <input id="addDance" type="submit" value="Submit">
+    </form>
+    <!-- all rendered buttons are in this container -->
     <div id="buttons">
-            <!-- these should eventually be created by javascript rather than the html file??? hmmmmm -->
+        <!-- these should eventually be created by javascript rather than the html file??? hmmmmm -->
 
         <!-- <button class="dance-button" data-dance-choice="wakanda">
             wakanda
@@ -69,28 +81,40 @@
         </button> -->
 
 
-    <!-- I want NEW buttons to be dynamiclly created here -->
-  </div>
+        <!-- I want NEW buttons to be dynamiclly created here -->
+    </div>
 
-  <!-- <div id="button">
+    <!-- <div id="button">
   </div> -->
 
 
-  </div>
+    </div>
+    <section>
+        <div id="gifs-appear-here">
+        </div>
 
-  <div id="gifs-appear-here">
-  </div>
+        <!-- I want Dance GIFs to go here??? -->
+        <div id="dances" class=".dance-button" style="float:left">
 
-<!-- I want Dance GIFs to go here??? -->
-<div id="dances" class=".dance-button" style="float:left">
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <aside>
+            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/91901851&color=%23747c7c&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        </aside>
 
-    </div>  
 
-
-
-<footer>Do you <i>feel</i> it?!?! <a href="https://github.com/dvdkrstndnls" target="_blank">I know I do!</a></footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="javascript/app.js"></script>
+        <footer>Copyright 2018 by
+            <a href="https://dvdkrstndnls.github.io/Portfolio/">DKD</a> || Explore this app's
+            <a href="https://github.com/dvdkrstndnls/GiphyAPI">code</a> on GitHub </footer>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="javascript/app.js"></script>
 </body>
-</html> 
+
+</html>

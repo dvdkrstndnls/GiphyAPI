@@ -17,7 +17,7 @@ Uses the GIPHY API to make a dynamic web page that populates with gifs of choice
    * Like many APIs, GIPHY requires developers to use a key to access their API data. To use the GIPHY API, you'll need a GIPHY account (don't worry, it's free!) and then obtain an API Key by [creating an app](https://developers.giphy.com/dashboard/?create=true).  
    //Api Key:
    //H8rSfwFYkSs3Fpl9MCp53KA8Kqk6Uni8
-   * Make sure you switch the protocol in the query URL from **`http to https`**, or the app may not work properly when deployed to Github Pages.
+   * Make sure you switch the protocol in the query URL from **`http to https`**, or the app may not work properly when deployed to Github Pages. DONE
 
 2. **[Watch the demo video](homework_demo.mov)**
 
@@ -27,7 +27,7 @@ Uses the GIPHY API to make a dynamic web page that populates with gifs of choice
 
 1. Before you can make any part of our site work, you need to create an array of strings, each one related to a topic that interests you. Save it to a variable called `topics`.
    * We chose animals for our theme, but you can make a list to your own liking.
-   var topics = ['wakanda', 'little kids dancing', 'dancing bloopers', 'african tribal dancing', 'pop and lock', 'hip hop dancing']
+   
 
 2. Your app should take the topics in this array and create buttons in your HTML.
    * Try using a loop that appends a button for each string in the array.
